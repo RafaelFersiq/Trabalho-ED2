@@ -62,11 +62,11 @@ A Etapa 1 tem como meta construir a fundação de persistência e recuperação 
   - [x] Definir `EngineError` (I/O, corrupção de CRC32, parsing de JSONL, formato de registro inválido).
   - [x] Implementar conversões de erro (`From<io::Error>`, `From<serde_json::Error>`).
 
-- [ ] **2. Formato Binário e Serialização de Registros (`src/wal/record.rs`)**
-  - [ ] Definir constantes de flags (`FLAG_PUT = 0x01`, `FLAG_DELETE = 0x02`).
-  - [ ] Implementar struct `LogRecord` (`key`, `value`, `is_tombstone`).
-  - [ ] Implementar serialização binária com cálculo de CRC32 (`crc32fast`).
-  - [ ] Implementar deserialização binária e validação estrita de CRC32.
+- [x] **2. Formato Binário e Serialização de Registros (`src/wal/record.rs`)**
+  - [x] Definir constantes de flags (`FLAG_PUT = 0x01`, `FLAG_DELETE = 0x02`).
+  - [x] Implementar struct `LogRecord` (`key`, `value`, `is_tombstone`).
+  - [x] Implementar serialização binária com cálculo de CRC32 (`crc32fast`).
+  - [x] Implementar deserialização binária e validação estrita de CRC32.
 
 - [ ] **3. Gravação Append-Only e Durabilidade (`src/wal/mod.rs` / `writer.rs`)**
   - [ ] Implementar estrutura do arquivo de log (`data.wal` ou similar sob `data-dir`).

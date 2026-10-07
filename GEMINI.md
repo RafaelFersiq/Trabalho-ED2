@@ -95,6 +95,7 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 ├── docs/
 │   ├── adr/
 │   │   ├── 001-modulo-de-erros-e-tipos-basicos.md
+│   │   ├── 002-formato-binario-e-serializacao-wal.md
 │   │   └── README.md
 │   ├── contexto/
 │   │   ├── DOCUMENTACAO_PROJETO.md
@@ -106,6 +107,8 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   ├── memtable/
 │   ├── sstable/
 │   ├── wal/
+│   │   ├── mod.rs
+│   │   └── record.rs
 │   ├── error.rs
 │   ├── lib.rs
 │   └── main.rs
@@ -127,6 +130,8 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 * [src/lib.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/lib.rs): Ponto de entrada da biblioteca do engine (exportando módulos para CLI e testes).
 * [src/error.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/error.rs): Módulo de tipos de erro (`EngineError`), resultado (`Result<T>`) e tipos primitivos de domínio.
 * **`src/wal/`**: Módulo para formato de registros binários, cálculo de CRC32, gravação em log e recuperação de crash.
+  * [src/wal/mod.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/mod.rs): Ponto de entrada do módulo WAL.
+  * [src/wal/record.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/record.rs): Estrutura `LogRecord`, codificação Little-Endian e validação estrita de CRC32.
 * **`src/memtable/`**: Módulo para estrutura em memória RAM (`BTreeMap`) e controle de limites de memória.
 * **`src/sstable/`**: Módulo para blocos de dados, índice esparso, persistência imutável e K-Way Merge.
 * **`src/adaptive/`**: Módulo para estratégias adaptativas (Filtro de Bloom, Cache LRU e Compactação).
