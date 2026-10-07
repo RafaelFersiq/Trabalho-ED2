@@ -1,5 +1,5 @@
 # Multi-stage build para gerar o binário estático /engine em Linux amd64
-FROM rust:1.80-slim as builder
+FROM rust:1-slim as builder
 
 WORKDIR /usr/src/engine
 COPY Cargo.toml ./

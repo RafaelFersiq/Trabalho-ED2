@@ -58,9 +58,9 @@ A Etapa 1 tem como meta construir a fundação de persistência e recuperação 
 
 ## 2. Checklist Sequencial de Implementação da Etapa 1
 
-- [ ] **1. Módulo de Erros e Tipos Básicos (`src/error.rs`)**
-  - [ ] Definir `EngineError` (I/O, corrupção de CRC32, parsing de JSONL, formato de registro inválido).
-  - [ ] Implementar conversões de erro (`From<io::Error>`, `From<serde_json::Error>`).
+- [x] **1. Módulo de Erros e Tipos Básicos (`src/error.rs`)**
+  - [x] Definir `EngineError` (I/O, corrupção de CRC32, parsing de JSONL, formato de registro inválido).
+  - [x] Implementar conversões de erro (`From<io::Error>`, `From<serde_json::Error>`).
 
 - [ ] **2. Formato Binário e Serialização de Registros (`src/wal/record.rs`)**
   - [ ] Definir constantes de flags (`FLAG_PUT = 0x01`, `FLAG_DELETE = 0x02`).

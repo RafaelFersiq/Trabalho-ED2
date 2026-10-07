@@ -94,6 +94,8 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 ├── GEMINI.md
 ├── docs/
 │   ├── adr/
+│   │   ├── 001-modulo-de-erros-e-tipos-basicos.md
+│   │   └── README.md
 │   ├── contexto/
 │   │   ├── DOCUMENTACAO_PROJETO.md
 │   │   ├── etapa_atual.md
@@ -104,6 +106,8 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   ├── memtable/
 │   ├── sstable/
 │   ├── wal/
+│   ├── error.rs
+│   ├── lib.rs
 │   └── main.rs
 └── tests/
 ```
@@ -120,6 +124,8 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
     * [regras.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/regras.md): Delimitação clara do que PODE, DEVE e NÃO DEVE ser feito no trabalho.
   * `docs/estudo/`: Espaço reservado para anotações teóricas, rascunhos e estudos do grupo.
 * [src/main.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/main.rs): Ponto de entrada executável da CLI (`/engine`).
+* [src/lib.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/lib.rs): Ponto de entrada da biblioteca do engine (exportando módulos para CLI e testes).
+* [src/error.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/error.rs): Módulo de tipos de erro (`EngineError`), resultado (`Result<T>`) e tipos primitivos de domínio.
 * **`src/wal/`**: Módulo para formato de registros binários, cálculo de CRC32, gravação em log e recuperação de crash.
 * **`src/memtable/`**: Módulo para estrutura em memória RAM (`BTreeMap`) e controle de limites de memória.
 * **`src/sstable/`**: Módulo para blocos de dados, índice esparso, persistência imutável e K-Way Merge.
