@@ -17,6 +17,9 @@ Antes de propor, planejar ou executar qualquer código, refatoração ou comando
    * **O que PODE ser feito:** Uso de crates auxiliares autorizadas (`clap`, `serde`, `serde_json`, `crc32fast`, `byteorder`, `tempfile`), I/O bufferizado, índices em RAM limitados.
    * **O que NÃO DEVE ser feito:** Proibição absoluta de DBMSs prontos (SQLite, RocksDB, etc.), proibição de carregar o dataset todo na RAM, não responder `ok` sem persistência em disco, não vazar tombstones.
 
+3. 🏛️ **[docs/adr/](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/adr)**:
+   **Registro Obrigatório de Decisões Arquiteturais (ADRs):** Qualquer adição substancial no projeto deve ser documentada de forma atômica em notas separadas no formato `.md` dentro deste diretório, descrevendo o contexto e justificando a escolha técnica e arquitetural adotada.
+
 Documentação completa de referência arquitetural e acadêmica: [docs/contexto/DOCUMENTACAO_PROJETO.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/DOCUMENTACAO_PROJETO.md).
 
 ---
@@ -90,6 +93,7 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 ├── Dockerfile
 ├── GEMINI.md
 ├── docs/
+│   ├── adr/
 │   ├── contexto/
 │   │   ├── DOCUMENTACAO_PROJETO.md
 │   │   ├── etapa_atual.md
@@ -108,11 +112,13 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 * [Cargo.toml](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/Cargo.toml): Manifesto de dependências e configuração de compilação do binário `engine`.
 * [Dockerfile](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/Dockerfile): Definição de container Linux `amd64` multi-stage para compilar e expor `/engine`.
 * [GEMINI.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/GEMINI.md): Contexto, arquitetura e diretrizes que direcionam o agente para as regras e a etapa atual.
-* `docs/contexto/`:
-  * [DOCUMENTACAO_PROJETO.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/DOCUMENTACAO_PROJETO.md): Documento mestre de especificação técnica e regras do trabalho.
-  * [etapa_atual.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/etapa_atual.md): Escopo detalhado da etapa em andamento e checklist sequencial com checkboxes.
-  * [regras.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/regras.md): Delimitação clara do que PODE, DEVE e NÃO DEVE ser feito no trabalho.
-* `docs/estudo/`: Espaço reservado para anotações teóricas, rascunhos e estudos do grupo.
+* `docs/`:
+  * [docs/adr/](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/adr): Registro atômico de decisões arquiteturais (**ADRs**) documentando e justificando escolhas técnicas do projeto em notas `.md`.
+  * `docs/contexto/`:
+    * [DOCUMENTACAO_PROJETO.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/DOCUMENTACAO_PROJETO.md): Documento mestre de especificação técnica e regras do trabalho.
+    * [etapa_atual.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/etapa_atual.md): Escopo detalhado da etapa em andamento e checklist sequencial com checkboxes.
+    * [regras.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/regras.md): Delimitação clara do que PODE, DEVE e NÃO DEVE ser feito no trabalho.
+  * `docs/estudo/`: Espaço reservado para anotações teóricas, rascunhos e estudos do grupo.
 * [src/main.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/main.rs): Ponto de entrada executável da CLI (`/engine`).
 * **`src/wal/`**: Módulo para formato de registros binários, cálculo de CRC32, gravação em log e recuperação de crash.
 * **`src/memtable/`**: Módulo para estrutura em memória RAM (`BTreeMap`) e controle de limites de memória.
