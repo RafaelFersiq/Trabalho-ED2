@@ -5,4 +5,7 @@ pub mod error;
 pub mod wal;
 
 pub use error::{EngineError, Key, RecordLocation, Result};
-pub use wal::{calculate_crc, LogRecord, FLAG_DELETE, FLAG_PUT, HEADER_SIZE};
+pub use wal::{
+    calculate_crc, LogRecord, RecoveryReport, WalEntry, WalIterator, WalReader, WalWriter,
+    FLAG_DELETE, FLAG_PUT, HEADER_SIZE, WAL_FILE_NAME,
+};

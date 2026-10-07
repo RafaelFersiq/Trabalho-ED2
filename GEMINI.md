@@ -96,6 +96,8 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   ├── adr/
 │   │   ├── 001-modulo-de-erros-e-tipos-basicos.md
 │   │   ├── 002-formato-binario-e-serializacao-wal.md
+│   │   ├── 003-gravacao-append-only-e-durabilidade-wal.md
+│   │   ├── 004-varredura-sequencial-e-recuperacao-crash.md
 │   │   └── README.md
 │   ├── contexto/
 │   │   ├── DOCUMENTACAO_PROJETO.md
@@ -108,7 +110,9 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   ├── sstable/
 │   ├── wal/
 │   │   ├── mod.rs
-│   │   └── record.rs
+│   │   ├── reader.rs
+│   │   ├── record.rs
+│   │   └── writer.rs
 │   ├── error.rs
 │   ├── lib.rs
 │   └── main.rs
@@ -131,7 +135,9 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 * [src/error.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/error.rs): Módulo de tipos de erro (`EngineError`), resultado (`Result<T>`) e tipos primitivos de domínio.
 * **`src/wal/`**: Módulo para formato de registros binários, cálculo de CRC32, gravação em log e recuperação de crash.
   * [src/wal/mod.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/mod.rs): Ponto de entrada do módulo WAL.
+  * [src/wal/reader.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/reader.rs): Estrutura `WalReader`, leitura pontual com `seek`, iterador sequencial em streaming e rotina de crash recovery com truncamento.
   * [src/wal/record.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/record.rs): Estrutura `LogRecord`, codificação Little-Endian e validação estrita de CRC32.
+  * [src/wal/writer.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/writer.rs): Estrutura `WalWriter`, escrita sequencial bufferizada, durabilidade com `fsync` e truncamento.
 * **`src/memtable/`**: Módulo para estrutura em memória RAM (`BTreeMap`) e controle de limites de memória.
 * **`src/sstable/`**: Módulo para blocos de dados, índice esparso, persistência imutável e K-Way Merge.
 * **`src/adaptive/`**: Módulo para estratégias adaptativas (Filtro de Bloom, Cache LRU e Compactação).

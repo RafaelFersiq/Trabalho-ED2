@@ -2,7 +2,6 @@
 
 - **Status:** Aceito
 - **Data:** 2026-10-07
-- **Autor:** Equipe ED2
 
 ---
 

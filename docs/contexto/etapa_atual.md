@@ -68,15 +68,15 @@ A Etapa 1 tem como meta construir a fundação de persistência e recuperação 
   - [x] Implementar serialização binária com cálculo de CRC32 (`crc32fast`).
   - [x] Implementar deserialização binária e validação estrita de CRC32.
 
-- [ ] **3. Gravação Append-Only e Durabilidade (`src/wal/mod.rs` / `writer.rs`)**
-  - [ ] Implementar estrutura do arquivo de log (`data.wal` ou similar sob `data-dir`).
-  - [ ] Adicionar suporte a escrita bufferizada com flush explícito e `fsync` por operação de commit.
-  - [ ] Retornar o offset e tamanho gravados para atualização do índice.
+- [x] **3. Gravação Append-Only e Durabilidade (`src/wal/mod.rs` / `writer.rs`)**
+  - [x] Implementar estrutura do arquivo de log (`data.wal` ou similar sob `data-dir`).
+  - [x] Adicionar suporte a escrita bufferizada com flush explícito e `fsync` por operação de commit.
+  - [x] Retornar o offset e tamanho gravados para atualização do índice.
 
-- [ ] **4. Varredura Sequencial e Recuperação de Crash (`src/wal/reader.rs`)**
-  - [ ] Implementar iterador/leitor de registros do log desde o início do arquivo.
-  - [ ] Tratar fim de arquivo inesperado ou corrupção no último registro com truncamento seguro (`file.set_len(valid_offset)`).
-  - [ ] Implementar suporte à leitura pontual por offset (`seek` + `read_exact`) para consultas `GET`.
+- [x] **4. Varredura Sequencial e Recuperação de Crash (`src/wal/reader.rs`)**
+  - [x] Implementar iterador/leitor de registros do log desde o início do arquivo.
+  - [x] Tratar fim de arquivo inesperado ou corrupção no último registro com truncamento seguro (`file.set_len(valid_offset)`).
+  - [x] Implementar suporte à leitura pontual por offset (`seek` + `read_exact`) para consultas `GET`.
 
 - [ ] **5. Núcleo do Engine e Índice em Memória (`src/engine.rs`)**
   - [ ] Implementar struct `StorageEngine` com mapa em memória (`HashMap<u64, RecordLocation>`).
