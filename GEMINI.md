@@ -98,6 +98,9 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   │   ├── 002-formato-binario-e-serializacao-wal.md
 │   │   ├── 003-gravacao-append-only-e-durabilidade-wal.md
 │   │   ├── 004-varredura-sequencial-e-recuperacao-crash.md
+│   │   ├── 005-nucleo-do-engine-e-indice-em-memoria.md
+│   │   ├── 006-protocolo-json-lines.md
+│   │   ├── 007-interface-de-linha-de-comando.md
 │   │   └── README.md
 │   ├── contexto/
 │   │   ├── DOCUMENTACAO_PROJETO.md
@@ -113,9 +116,12 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   │   ├── reader.rs
 │   │   ├── record.rs
 │   │   └── writer.rs
+│   ├── cli.rs
+│   ├── engine.rs
 │   ├── error.rs
 │   ├── lib.rs
-│   └── main.rs
+│   ├── main.rs
+│   └── protocol.rs
 └── tests/
 ```
 
@@ -131,8 +137,11 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
     * [regras.md](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/docs/contexto/regras.md): Delimitação clara do que PODE, DEVE e NÃO DEVE ser feito no trabalho.
   * `docs/estudo/`: Espaço reservado para anotações teóricas, rascunhos e estudos do grupo.
 * [src/main.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/main.rs): Ponto de entrada executável da CLI (`/engine`).
+* [src/cli.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/cli.rs): Interface de Linha de Comando (CLI com `clap`), implementando os comandos `init`, `run`, `verify` e `describe`.
 * [src/lib.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/lib.rs): Ponto de entrada da biblioteca do engine (exportando módulos para CLI e testes).
+* [src/engine.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/engine.rs): Núcleo do `StorageEngine` integrando o WAL com o índice em RAM (Bitcask-style) e garantindo durabilidade com `fsync`.
 * [src/error.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/error.rs): Módulo de tipos de erro (`EngineError`), resultado (`Result<T>`) e tipos primitivos de domínio.
+* [src/protocol.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/protocol.rs): Módulo do protocolo JSON Lines (JSONL), parsing/serialização em streaming e preservação estrita de `id`.
 * **`src/wal/`**: Módulo para formato de registros binários, cálculo de CRC32, gravação em log e recuperação de crash.
   * [src/wal/mod.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/mod.rs): Ponto de entrada do módulo WAL.
   * [src/wal/reader.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/src/wal/reader.rs): Estrutura `WalReader`, leitura pontual com `seek`, iterador sequencial em streaming e rotina de crash recovery com truncamento.

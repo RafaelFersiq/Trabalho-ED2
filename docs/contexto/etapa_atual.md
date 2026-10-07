@@ -78,24 +78,24 @@ A Etapa 1 tem como meta construir a fundação de persistência e recuperação 
   - [x] Tratar fim de arquivo inesperado ou corrupção no último registro com truncamento seguro (`file.set_len(valid_offset)`).
   - [x] Implementar suporte à leitura pontual por offset (`seek` + `read_exact`) para consultas `GET`.
 
-- [ ] **5. Núcleo do Engine e Índice em Memória (`src/engine.rs`)**
-  - [ ] Implementar struct `StorageEngine` com mapa em memória (`HashMap<u64, RecordLocation>`).
-  - [ ] Implementar procedimento de recuperação na abertura (`StorageEngine::open(data_dir)`).
-  - [ ] Implementar `put(key, value)`.
-  - [ ] Implementar `get(key)` retornando `Option<Vec<u8>>`.
-  - [ ] Implementar `delete(key)` gravando tombstone e atualizando o índice.
+- [x] **5. Núcleo do Engine e Índice em Memória (`src/engine.rs`)**
+  - [x] Implementar struct `StorageEngine` com mapa em memória (`HashMap<u64, RecordLocation>`).
+  - [x] Implementar procedimento de recuperação na abertura (`StorageEngine::open(data_dir)`).
+  - [x] Implementar `put(key, value)`.
+  - [x] Implementar `get(key)` retornando `Option<Vec<u8>>`.
+  - [x] Implementar `delete(key)` gravando tombstone e atualizando o índice.
 
-- [ ] **6. Protocolo JSON Lines (`src/protocol.rs`)**
-  - [ ] Modelar mensagens de entrada (`Request`: `id`, `op`, `key`, `value`, `start`, `end`).
-  - [ ] Modelar mensagens de saída (`Response`: `id`, `status`, `value`, `records`).
-  - [ ] Garantir preservação estrita do campo `id` em toda resposta gerada.
+- [x] **6. Protocolo JSON Lines (`src/protocol.rs`)**
+  - [x] Modelar mensagens de entrada (`Request`: `id`, `op`, `key`, `value`, `start`, `end`).
+  - [x] Modelar mensagens de saída (`Response`: `id`, `status`, `value`, `records`).
+  - [x] Garantir preservação estrita do campo `id` em toda resposta gerada.
 
-- [ ] **7. Interface de Linha de Comando (CLI) (`src/cli.rs`)**
-  - [ ] Configurar comandos com `clap`: `init`, `run`, `verify`, `describe`.
-  - [ ] Implementar `init`: criar diretório se não existir e metadados iniciais.
-  - [ ] Implementar `run`: streaming linha a linha com `BufReader` e `BufWriter`.
-  - [ ] Implementar `verify`: validação integral dos dados persistidos no diretório.
-  - [ ] Implementar `describe`: impressão estruturada das informações da equipe e recursos suportados.
+- [x] **7. Interface de Linha de Comando (CLI) (`src/cli.rs`)**
+  - [x] Configurar comandos com `clap`: `init`, `run`, `verify`, `describe`.
+  - [x] Implementar `init`: criar diretório se não existir e metadados iniciais.
+  - [x] Implementar `run`: streaming linha a linha com `BufReader` e `BufWriter`.
+  - [x] Implementar `verify`: validação integral dos dados persistidos no diretório.
+  - [x] Implementar `describe`: impressão estruturada das informações da equipe e recursos suportados.
 
 - [ ] **8. Ponto de Entrada Principal (`src/main.rs`)**
   - [ ] Integrar CLI, despacho de comandos e tratamento global de erros.

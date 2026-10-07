@@ -16,3 +16,19 @@ Cada ADR deve conter:
 3. **Decisão:** O que foi escolhido para resolver o problema.
 4. **Justificativa e Alternativas Consideradas:** Por que essa abordagem foi escolhida e quais alternativas foram descartadas.
 5. **Consequências:** Impactos positivos, limitações e compromissos (*trade-offs*) assumidos.
+
+---
+
+## 📚 Índice de Decisões Registradas
+
+| ADR | Título | Status | Data |
+| :--- | :--- | :---: | :---: |
+| [001](001-modulo-de-erros-e-tipos-basicos.md) | Módulo de Erros e Tipos Básicos (`src/error.rs`) | Aceito | 2026-10-07 |
+| [002](002-formato-binario-e-serializacao-wal.md) | Formato Binário e Serialização de Registros do WAL | Aceito | 2026-10-07 |
+| [003](003-gravacao-append-only-e-durabilidade-wal.md) | Gravação Append-Only e Durabilidade do WAL (`src/wal/writer.rs`) | Aceito | 2026-10-07 |
+| [004](004-varredura-sequencial-e-recuperacao-crash.md) | Varredura Sequencial, Leitura Pontual e Recuperação Pós-Crash do WAL | Aceito | 2026-10-07 |
+| [005](005-nucleo-do-engine-e-indice-em-memoria.md) | Núcleo do Engine e Índice em Memória (Bitcask-Style) | Aceito | 2026-10-07 |
+| [006](006-protocolo-json-lines.md) | Protocolo JSON Lines (JSONL) e Despacho de Operações | Aceito | 2026-10-07 |
+| [007](007-interface-de-linha-de-comando.md) | Interface de Linha de Comando (CLI) (`src/cli.rs`) | Aceito | 2026-10-07 |
+
+
