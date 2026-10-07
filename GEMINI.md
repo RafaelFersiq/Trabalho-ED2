@@ -88,6 +88,7 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 
 ```
 .
+├── .dockerignore
 ├── .gitignore
 ├── Cargo.toml
 ├── Dockerfile
@@ -101,6 +102,7 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   │   ├── 005-nucleo-do-engine-e-indice-em-memoria.md
 │   │   ├── 006-protocolo-json-lines.md
 │   │   ├── 007-interface-de-linha-de-comando.md
+│   │   ├── 008-ponto-de-entrada-principal.md
 │   │   └── README.md
 │   ├── contexto/
 │   │   ├── DOCUMENTACAO_PROJETO.md

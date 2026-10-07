@@ -97,8 +97,8 @@ A Etapa 1 tem como meta construir a fundação de persistência e recuperação 
   - [x] Implementar `verify`: validação integral dos dados persistidos no diretório.
   - [x] Implementar `describe`: impressão estruturada das informações da equipe e recursos suportados.
 
-- [ ] **8. Ponto de Entrada Principal (`src/main.rs`)**
-  - [ ] Integrar CLI, despacho de comandos e tratamento global de erros.
+- [x] **8. Ponto de Entrada Principal (`src/main.rs`)**
+  - [x] Integrar CLI, despacho de comandos e tratamento global de erros.
 
 - [ ] **9. Suíte de Testes Automatizados da Etapa 1 (`tests/`)**
   - [ ] Teste unitário de integridade de registros binários e CRC32.

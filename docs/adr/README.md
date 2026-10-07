@@ -30,5 +30,7 @@ Cada ADR deve conter:
 | [005](005-nucleo-do-engine-e-indice-em-memoria.md) | Núcleo do Engine e Índice em Memória (Bitcask-Style) | Aceito | 2026-10-07 |
 | [006](006-protocolo-json-lines.md) | Protocolo JSON Lines (JSONL) e Despacho de Operações | Aceito | 2026-10-07 |
 | [007](007-interface-de-linha-de-comando.md) | Interface de Linha de Comando (CLI) (`src/cli.rs`) | Aceito | 2026-10-07 |
+| [008](008-ponto-de-entrada-principal.md) | Ponto de Entrada Principal e Tratamento Global de Erros (`src/main.rs`) | Aceito | 2026-10-07 |
+
 
 
