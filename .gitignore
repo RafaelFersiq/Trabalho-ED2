@@ -1,4 +1,5 @@
 /target
+/docs/estudo
 **/*.rs.bk
 *.swp
 *~

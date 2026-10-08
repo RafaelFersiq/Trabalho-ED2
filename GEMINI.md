@@ -103,6 +103,7 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   │   ├── 006-protocolo-json-lines.md
 │   │   ├── 007-interface-de-linha-de-comando.md
 │   │   ├── 008-ponto-de-entrada-principal.md
+│   │   ├── 009-suite-de-testes-automatizados.md
 │   │   └── README.md
 │   ├── contexto/
 │   │   ├── DOCUMENTACAO_PROJETO.md
@@ -125,6 +126,10 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 │   ├── main.rs
 │   └── protocol.rs
 └── tests/
+    ├── crash_recovery_test.rs
+    ├── jsonl_workload_e2e_test.rs
+    ├── persistence_reopen_test.rs
+    └── wal_binary_crc_test.rs
 ```
 
 ### Detalhamento dos Componentes:
@@ -152,4 +157,9 @@ A arquitetura transforma acessos aleatórios de escrita em gravações contínua
 * **`src/memtable/`**: Módulo para estrutura em memória RAM (`BTreeMap`) e controle de limites de memória.
 * **`src/sstable/`**: Módulo para blocos de dados, índice esparso, persistência imutável e K-Way Merge.
 * **`src/adaptive/`**: Módulo para estratégias adaptativas (Filtro de Bloom, Cache LRU e Compactação).
-* **`tests/`**: Diretório para suítes de testes de integração, simulação de crash e validação de workloads.
+* **`tests/`**: Suíte de testes de integração, simulação de falhas e validação de workloads:
+  * [tests/crash_recovery_test.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/tests/crash_recovery_test.rs): Testes de recuperação pós-crash, simulação de escrita parcial no fim do WAL, reparo por truncamento seguro e rejeição de corrupção no meio do log.
+  * [tests/jsonl_workload_e2e_test.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/tests/jsonl_workload_e2e_test.rs): Testes de ponta a ponta via comando `run`, protocolo JSONL em streaming com buffers, preservação estrita de `id` e integração CLI.
+  * [tests/persistence_reopen_test.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/tests/persistence_reopen_test.rs): Testes de persistência e sobrevivência a reinicializações, reconstrução do índice a partir do log e descarte de tombstones.
+  * [tests/wal_binary_crc_test.rs](file:///home/rafael-siqueira/estudos/faculdade/trabalhos/ED2/tests/wal_binary_crc_test.rs): Testes de integridade física de registros binários, validação e detecção de erros de CRC32, e tratamento de limites e EOFs.
+

@@ -100,8 +100,9 @@ A Etapa 1 tem como meta construir a fundação de persistência e recuperação 
 - [x] **8. Ponto de Entrada Principal (`src/main.rs`)**
   - [x] Integrar CLI, despacho de comandos e tratamento global de erros.
 
-- [ ] **9. Suíte de Testes Automatizados da Etapa 1 (`tests/`)**
-  - [ ] Teste unitário de integridade de registros binários e CRC32.
-  - [ ] Teste de persistência: reinicialização do processo preservando dados de `PUT` e exclusões de `DELETE`.
-  - [ ] Teste de crash recovery: simular escrita parcial no fim do log e validar truncamento e integridade dos registros anteriores.
-  - [ ] Teste de ponta a ponta com JSONL via comando `run`.
+- [x] **9. Suíte de Testes Automatizados da Etapa 1 (`tests/`)**
+  - [x] Teste unitário de integridade de registros binários e CRC32.
+  - [x] Teste de persistência: reinicialização do processo preservando dados de `PUT` e exclusões de `DELETE`.
+  - [x] Teste de crash recovery: simular escrita parcial no fim do log e validar truncamento e integridade dos registros anteriores.
+  - [x] Teste de ponta a ponta com JSONL via comando `run`.
+
